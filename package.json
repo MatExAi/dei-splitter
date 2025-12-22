@@ -1,0 +1,56 @@
+{
+  "name": "dei-splitter",
+  "version": "1.0.0",
+  "description": "DEI Splitter - Electricity Bill Calculator with PDF Upload",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:web": "vite build --outDir=dist/web",
+    "preview": "vite preview",
+    "electron:dev": "electron .",
+    "electron:build": "electron-builder",
+    "dist:win": "npm run build:web && electron-builder --win",
+    "dist:mac": "npm run build:web && electron-builder --mac",
+    "dist:linux": "npm run build:web && electron-builder --linux",
+    "cap:init": "cap init",
+    "cap:sync": "cap sync",
+    "cap:android": "cap open android",
+    "build:android:apk": "cd android && ./gradlew assembleDebug"
+  },
+  "build": {
+    "appId": "com.matexai.deisplitter",
+    "productName": "DEI Splitter by MatExAi",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "dist/web/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/cli": "^6.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "vite": "^5.3.1"
+  },
+  "author": "MatExAi",
+  "license": "MIT"
+}
