@@ -1,0 +1,7 @@
+{
+  "name": "DEI Splitter — by MatExAi",
+  "description": "Μια προηγμένη εφαρμογή για τον επιμερισμό λογαριασμών ΔΕΗ μεταξύ δύο ατόμων, με αυτόματη ανάλυση PDF και εξαγωγή σε πολλαπλές μορφές.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
