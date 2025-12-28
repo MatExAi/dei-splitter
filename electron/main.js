@@ -13,8 +13,16 @@ function createWindow() {
   });
 
   // Load the built web app
-  const startUrl = path.join(__dirname, '../dist/web/index.html');
-  mainWindow.loadFile(startUrl);
+  // Use different path based on environment
+  if (app.isPackaged) {
+    // In production, files are in resources/app/dist/web
+    const startUrl = path.join(__dirname, '../dist/web/index.html');
+    mainWindow.loadFile(startUrl);
+  } else {
+    // In development
+    const startUrl = path.join(__dirname, '../dist/web/index.html');
+    mainWindow.loadFile(startUrl);
+  }
 
   // Open DevTools in development
   // mainWindow.webContents.openDevTools();
