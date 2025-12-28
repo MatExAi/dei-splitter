@@ -10,30 +10,28 @@ jobs:
     runs-on: windows-latest
     
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
       
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Install dependencies
+      run: npm install
       
-      - name: Install dependencies
-        run: npm install
+    - name: Build web app
+      run: npm run build:web
       
-      - name: Build web app
-        run: npm run build
+    - name: Install Electron dependencies
+      run: npm install electron electron-builder
       
-      - name: Install Electron dependencies
-        working-directory: electron
-        run: npm install
+    - name: Build Windows installer
+      run: npm run dist:win
       
-      - name: Build Windows installer
-        working-directory: electron
-        run: npm run build
-      
-      - name: Upload Windows installer
-        uses: actions/upload-artifact@v4
-        with:
-          name: windows-installer
-          path: electron/dist/*.exe
+    - name: Upload Windows installer
+      uses: actions/upload-artifact@v4
+      with:
+        name: windows-installer
+        path: dist/*.exe
