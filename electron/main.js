@@ -9,7 +9,6 @@ function createWindow() {
       nodeIntegration: false,
       contextIsolation: true
     },
-    icon: path.join(__dirname, '../build/icon.png')
   });
 
   // Load the built web app
