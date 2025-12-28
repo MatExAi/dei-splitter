@@ -32,8 +32,7 @@
     "win": {
       "target": "nsis"
     },
-        "publish": "never",
-    "nsis": {
+    "publish": null,    "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true
     }
