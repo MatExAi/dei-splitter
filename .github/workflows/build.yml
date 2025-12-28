@@ -25,7 +25,15 @@ jobs:
       run: npm run build:web
       
     - name: Install Electron dependencies
-      run: npm install electron electron-builder
+      run: npm install electron electron-builder --save-dev
+    
+    - name: Create icon directory
+      run: mkdir -p build
+      shell: bash
+      
+    - name: Create dummy icon
+      run: echo "" > build/icon.ico
+      shell: bash
       
     - name: Build Windows installer
       run: npm run dist:win
